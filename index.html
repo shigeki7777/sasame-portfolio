@@ -57,6 +57,7 @@ h1,h2,h3{font-family:var(--disp);font-weight:700;letter-spacing:-.02em;margin:0}
 .node p{color:var(--muted);font-size:14.5px;margin:0 0 14px}
 .node .from{font-family:var(--mono);font-size:13px;color:var(--ink);background:var(--paper-2);padding:5px 10px;border-radius:7px;display:inline-block}
 /* proof cards */
+.card.wide{grid-column:1 / -1}
 .proof{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:34px}
 .card{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
 .card-h{padding:20px 22px 0} .card-h .tag{font-family:var(--mono);font-size:11.5px;color:var(--violet);letter-spacing:.08em;text-transform:uppercase}
@@ -130,6 +131,10 @@ h1,h2,h3{font-family:var(--disp);font-weight:700;letter-spacing:-.02em;margin:0}
       <div class="card-h"><div class="tag">n8n workflow</div><h3>AI Lead Triage &amp; Reply</h3><p>New lead arrives → Claude scores, segments, drafts the reply.</p></div>
       <div class="flow"><span class="fn">Webhook</span><span class="arr">→</span><span class="fn">Normalize</span><span class="arr">→</span><span class="fn sig">Claude: score</span><span class="arr">→</span><span class="fn hot">🔥 hot → draft + Slack</span></div>
       <div class="out" style="margin-top:0"><span class="p">in</span> { company:<span class="n">"Acme Dental"</span>, msg:<span class="n">"automate reminders ASAP"</span> }<br><span class="p">out</span> { score:<span class="n">86</span>, segment:<span class="ok">"hot"</span> } → reply drafted in seconds</div>
+    </div>
+    <div class="card reveal wide">
+      <div class="card-h"><div class="tag">RAG · chat with your docs</div><h3>Grounded answers, real citations, zero hallucination</h3><p>Semantic search over your knowledge base — cites every fact, and refuses when the answer isn't there.</p></div>
+      <div class="out"><span class="p">Q</span> what credit applies after 6h downtime this month?<br><span class="p">A</span> Credit tiers by monthly uptime: 99.0–99.9% → <span class="n">10%</span> credit <span class="ok">[sla.md]</span><br><br><span class="p">Q</span> is our customer data encrypted?<br><span class="p">A</span> Encrypted at rest with <span class="n">AES-256</span>, in transit TLS 1.2+ <span class="ok">[security.md]</span><br><br><span class="p">Q</span> do you have an iPhone app?<br><span class="p">A</span> <span class="n">I don’t find that in the provided documentation.</span> ← no hallucination</div>
     </div>
   </div>
 </div></section>
